@@ -7,6 +7,11 @@ import Tutorials from '../Pages/Tutorials';
 import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import GoogleLogin from '../Pages/GoogleLogin';
+import LetsLearn from '../Pages/Lessons';
+import LessonDetails from '../Components/LessonDetails';
+import LessonCard from '../Components/LessonCard';
+import Lessons from '../Pages/Lessons';
+import LessonList from '../Components/LessonList';
 
 const Router = createBrowserRouter([
     {
@@ -20,6 +25,33 @@ const Router = createBrowserRouter([
             {
                 path:"/start learning",
                 element:<StartLearning></StartLearning>
+            },
+            {
+                path:"/lesson card",
+                element:<LessonCard></LessonCard>,
+                
+            },
+            {
+                path:"/lesson",
+                element:<Lessons></Lessons>,
+                loader:()=>fetch("./Vocabulary.json")
+                
+            },
+            {
+                path:"/lesson list",
+                element:<LessonList></LessonList>,
+                loader:()=>fetch("./Vocabulary.json")
+                
+            },
+            {
+                path:"/lesson/:lesson_no",
+                element:<LessonDetails></LessonDetails>,
+                loader: async({params})=>{
+                    const res = await fetch("/Vocabulary.json")
+                    const data = await res.json()
+                    const LessonDetails = data.filter(d=>d.lesson_no == params.lesson_no)
+                    return LessonDetails;
+                }
             },
             {
                 path:"/about us",
