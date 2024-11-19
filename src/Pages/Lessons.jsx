@@ -21,7 +21,7 @@ const Lessons = () => {
        <header className="bg-blue-500 text-white w-full py-6 text-center">
         <h1 className="text-3xl font-bold">Let's Learn Spanish</h1>
       </header>
-      <div className="card grid grid-cols-4 w-11/12 mx-auto gap-4 bg-white shadow-lg rounded-lg p-4">
+      <div className="card grid md:grid-cols-4 w-11/12 mx-auto gap-4 bg-white shadow-lg rounded-lg p-4">
       {
         lessons.map(lesson=> <LessonCard key={lesson.id} lesson={lesson}></LessonCard>)
       }
