@@ -9,7 +9,7 @@ const Header = () => {
     <li><NavLink to="/about us">About-Us</NavLink></li>
     </>
   return (
-    <div className="navbar bg-base-100 w-11/12 mx-auto">
+    <div className="navbar mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -30,7 +30,7 @@ const Header = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm text-xl font-bold dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             {
                 Link
@@ -40,14 +40,14 @@ const Header = () => {
         <a className="btn btn-ghost text-3xl font-extrabold">Vocabulary Learning</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu text-lg font-bold menu-horizontal px-1">
           {
             Link
           }
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink to="/login"><button className="btn">Login</button></NavLink>
+        <NavLink to="/login"><button className="btn text-lg font-bold">Login</button></NavLink>
       </div>
     </div>
   );

@@ -1,9 +1,6 @@
-import { useLoaderData } from "react-router-dom";
 import LessonCard from "../Components/LessonCard";
 
 const Lessons = () => {
-  const data = useLoaderData();
-  console.log(data);
   const lessons = [
     { id: "1", lesson_no: 1, title: "Lesson 1" },
     { id: "2", lesson_no: 2, title: "Lesson 2" },
