@@ -6,11 +6,10 @@ const LessonCard = ({lesson}) => {
   const {title,lesson_no} = lesson;
 
   useEffect(() => {
-    // Initialize AOS after the component is mounted
     Aos.init({
-      duration: 1000,  // Set the animation duration (in ms)
-      easing: 'ease-in-out', // Set the easing function
-      once: true, // Whether the animation should happen only once (when scrolling)
+      duration: 1000,  
+      easing: 'ease-in-out', 
+      once: true,
     });
   }, []);  
   return (
