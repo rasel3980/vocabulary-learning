@@ -1,54 +1,57 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import { auth } from "../Firebase/Firebase.init";
+import { authContext } from "../Components/AuthProvider/AuthProvider";
 
 const SignUp = () => {
+  const {handleSignUp,ManageProfile} = useContext(authContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const handleSignUp = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const Email = event.target.email.value;
     const Password = event.target.password.value;
     const Name = event.target.name.value;
-    const photoURL = event.target.url.value;
-    console.log(Name,Email, Password,photoURL);
+    const photo = event.target.url.value;
+    console.log(Name,Email, Password,photo);
     setErrorMessage("");
     setSuccess(false);
-    if (errorMessage.length < 6) {
+    if (Password.length < 6) {
       setErrorMessage("Password should be 6 character or longer");
       return;
     }
-    const passwordReEx =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{6,}$/;
 
-    if (!passwordReEx.test(Password)) {
+    if (!/[a-z]/.test(Password)) {
       setErrorMessage(
-        "At least one upperCase,one lowerCase,one digit,one special character"
+        "Password must contain at least one lowercase letter"
+      );
+      return;
+    }
+    if (!/[A-Z]/.test(Password)) {
+      setErrorMessage(
+        "Password must contain at least one Uppercase letter"
       );
       return;
     }
 
-    createUserWithEmailAndPassword(auth, Email, Password)
+    handleSignUp(Email,Password)
       .then((result) => {
+        ManageProfile(Name,photo);
         console.log(result.user);
         setSuccess(true);
       })
-      .catch((error) => {
-        console.log("ERROR", error);
-        setErrorMessage(error.message);
-        setSuccess(false);
-      });
+
   };
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className="text-3xl font-bold ml-14">SignUp now!</h1>
-          <form onSubmit={handleSignUp} className="card-body">
+          
+          <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
+            <h1 className="text-3xl font-bold ml-10">SignUp now!</h1>
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
@@ -113,10 +116,10 @@ const SignUp = () => {
             </button>
           </p>
           {errorMessage && (
-            <p className="text-red-600 text-lg">{errorMessage}</p>
+            <p className="text-red-600 ml-4 mb-3">{errorMessage}</p>
           )}
           {success && (
-            <p className="text-green-600 text-lg">SignUp Successfully</p>
+            <p className="text-green-600 mb-3 ml-20 text-lg">SignUp Successfully</p>
           )}
         </div>
       </div>

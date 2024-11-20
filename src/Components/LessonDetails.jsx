@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate,} from "react-router-dom";
 import Aos from "aos";
 import 'aos/dist/aos.css'
 const LessonDetails = () => {
+  const Navigate = useNavigate();
   const data = useLoaderData();
   console.log(data);
 
@@ -61,9 +62,8 @@ const LessonDetails = () => {
               >
                 When To Say
               </button>
-              <NavLink to="/lesson">
-              <button className="px-2 py-1 hover:bg-[#3498db] font-bold bg-[#1abc9c] rounded-lg text-gray-50 ml-7">Back to Lesson</button>
-              </NavLink>
+              <button onClick={()=>Navigate("/start learning")} className="px-2 py-1 hover:bg-[#3498db] font-bold bg-[#1abc9c] rounded-lg text-gray-50 ml-7">Back to Lesson</button>
+
             </div>
           </div>
         </div>

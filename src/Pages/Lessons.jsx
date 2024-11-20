@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import LessonCard from "../Components/LessonCard";
 
 const Lessons = () => {
+  const navigate = useNavigate();
   const lessons = [
     { id: "1", lesson_no: 1, title: "Lesson 1" },
     { id: "2", lesson_no: 2, title: "Lesson 2" },
@@ -22,6 +24,17 @@ const Lessons = () => {
       {
         lessons.map(lesson=> <LessonCard key={lesson.id} lesson={lesson}></LessonCard>)
       }
+      </div>
+      <div className="flex justify-between w-11/12 mx-auto my-10">
+        <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/kJQjXAVEWt0?si=uiItGwaKVljdo1DA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/CFmfVQx6kP4?si=UO3M0NRUauBlyrwR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div className="text-center pb-20">
+        <button onClick={()=>navigate('/tutorials')} className="btn bg-[#3498db] hover:bg-[#1abc9c] text-white font-bold text-xl">View More</button>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ const Header = () => {
     <li><NavLink to="start learning">Start-Learning</NavLink></li>
     <li><NavLink to="tutorials">Tutorials</NavLink></li>
     <li><NavLink to="/about us">About-Us</NavLink></li>
+    <li><NavLink to="/profile">My-Profile</NavLink></li>
     </>
   return (
     <div className="navbar mx-auto">
@@ -37,10 +38,10 @@ const Header = () => {
             }
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl font-extrabold">Vocabulary Learning</a>
+        <a className="btn btn-ghost text-3xl font-extrabold">Lingo Bingo</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu text-lg font-bold menu-horizontal px-1">
+        <ul className="menu font-bold menu-horizontal px-1">
           {
             Link
           }

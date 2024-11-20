@@ -12,6 +12,8 @@ import LessonDetails from '../Components/LessonDetails';
 import LessonCard from '../Components/LessonCard';
 import Lessons from '../Pages/Lessons';
 import LessonList from '../Components/LessonList';
+import Profile from '../Pages/Profile';
+import PrivateRoute from '../Components/PrivateRoute';
 
 const Router = createBrowserRouter([
     {
@@ -45,7 +47,9 @@ const Router = createBrowserRouter([
             },
             {
                 path:"/lesson/:lesson_no",
-                element:<LessonDetails></LessonDetails>,
+                element:<PrivateRoute>
+                    <LessonDetails></LessonDetails>
+                </PrivateRoute>,
                 loader: async({params})=>{
                     const res = await fetch("/Vocabulary.json")
                     const data = await res.json()
@@ -59,7 +63,9 @@ const Router = createBrowserRouter([
             },
             {
                 path:"/tutorials",
-                element:<Tutorials></Tutorials>
+                element:<PrivateRoute>
+                    <Tutorials></Tutorials>
+                </PrivateRoute>
             },
             {
                 path:"/login",
@@ -72,6 +78,12 @@ const Router = createBrowserRouter([
             {
                 path:"/google login",
                 element:<GoogleLogin></GoogleLogin>
+            },
+            {
+                path:"/profile",
+                element:<PrivateRoute>
+                    <Profile></Profile>
+                </PrivateRoute>
             },
             
         ]

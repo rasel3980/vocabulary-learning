@@ -1,24 +1,27 @@
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { auth } from '../Firebase/Firebase.init';
 import { FcGlobe, FcGoogle } from "react-icons/fc";
+import { authContext } from '../Components/AuthProvider/AuthProvider';
+import GoogleLogin from './GoogleLogin';
 
 const Login = () => {
+  const {handleSignIN,handleGoogleLogin} = useContext(authContext);
     const [errorMessage,setErrorMessage]=useState('')
     const[success,setSuccess]= useState(false)
     const [showPassword,setShowPassword] = useState(false)
-    const provider = new GoogleAuthProvider();
-    const handleGoogleSignIN = ()=>{
-        signInWithPopup(auth, provider)
-        .then(result=>{
-            console.log(result);
-        })
-        .catch(error=>{
-            console.log('ERROR',error);
-        })
-    }
+    // const provider = new GoogleAuthProvider();
+    // const handleGoogleSignIN = ()=>{
+    //     signInWithPopup(auth, provider)
+    //     .then(result=>{
+    //         console.log(result);
+    //     })
+    //     .catch(error=>{
+    //         console.log('ERROR',error);
+    //     })
+    // }
     const handleLoginForm = (event)=>{
         event.preventDefault();
         const Email = event.target.email.value;
@@ -26,19 +29,19 @@ const Login = () => {
         console.log(Email,Password);
         setErrorMessage('')
         setSuccess(false)
-        if(errorMessage.length<6){
-            setErrorMessage('Password should be 6 character or longer');
-            return;
-        }
-        const passwordReEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{6,}$/;
+        // if(errorMessage.length<6){
+        //     setErrorMessage('Password should be 6 character or longer');
+        //     return;
+        // }
+        // const passwordReEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{6,}$/;
 
-        if(!passwordReEx.test(Password)){
-            setErrorMessage('At least one upperCase,one lowerCase,one digit,one special character')
-            return;
+        // if(!passwordReEx.test(Password)){
+        //     setErrorMessage('At least one upperCase,one lowerCase,one digit,one special character')
+        //     return;
 
-        }
+        // }
 
-        signInWithEmailAndPassword(auth,Email,Password)
+        handleSignIN(Email,Password)
         .then(result=>{
             console.log(result.user);
             setSuccess(true)
@@ -55,9 +58,9 @@ const Login = () => {
         <div className="hero bg-base-200 ">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl pb-5">
-    <h1 className="text-3xl font-bold ml-14">Login now!</h1>
       <form onSubmit={handleLoginForm} className="card-body">
         <div className="form-control">
+        <h1 className="text-3xl font-bold ml-10">Login now!</h1>
           <label className="label">
             <span className="label-text">Email</span>
           </label>
@@ -86,13 +89,14 @@ const Login = () => {
       </form>
       <p className='ml-5 mb-5 mr-3'>New to this website? Please <button className='btn btn-sm bg-blue-600 text-white'><NavLink to="/signUp">SignUp</NavLink></button></p>
       <div className='flex justify-center items-center'>
-      <button onClick={handleGoogleSignIN} className='flex items-center justify-center'> <FcGoogle size={40} ></FcGoogle>Login with Google</button>
+      <button onClick={handleGoogleLogin} className='flex items-center justify-center'> <FcGoogle size={40} ></FcGoogle>Login with Google</button>
+      
       </div>
       {
         errorMessage && <p className='text-red-600 text-lg'>{errorMessage}</p>
       }
       {
-        success && <p className='text-green-600 text-lg ml-16'>Login Successfully</p>
+        success && <p className='text-green-600 text-lg ml-20'>Login Successfully</p>
       }
     </div>
     
