@@ -7,7 +7,7 @@ const WelcomeMsg = () => {
         <div className='text-center'>
             {
                 user && (
-                    <h1 className='text-2xl mt-2 font-bold text-[#4CAF50]'>Welcome {user.displayName}</h1>
+                    <h1 className='text-2xl mt-2 font-bold text-orange-600'>Welcome {user.displayName}</h1>
                 )
             }
         </div>

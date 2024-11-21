@@ -13,11 +13,11 @@ const ForgetPassword = () => {
     const Email = e.target.email.value
     ForgetPassword(Email)
       .then(() => {
-        console.log('forget successfully');
+        // console.log('forget successfully');
         setSuccess(true);
       })
       .catch((error) => {
-        console.log("ERROR", error);
+        // console.log("ERROR", error);
       });
   };
   return (

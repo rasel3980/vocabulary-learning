@@ -5,12 +5,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { authContext } from "../Components/AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const {handleSignUp,ManageProfile} = useContext(authContext);
+  const { handleSignUp, ManageProfile } = useContext(authContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,35 +26,29 @@ const SignUp = () => {
     }
 
     if (!/[a-z]/.test(Password)) {
-      setErrorMessage(
-        "Password must contain at least one lowercase letter"
-      );
+      setErrorMessage("Password must contain at least one lowercase letter");
       return;
     }
     if (!/[A-Z]/.test(Password)) {
-      setErrorMessage(
-        "Password must contain at least one Uppercase letter"
-      );
+      setErrorMessage("Password must contain at least one Uppercase letter");
       return;
     }
 
-    handleSignUp(Email,Password)
-      .then((result) => {
-        ManageProfile(Name,photo);
-        // console.log(result.user);
-        setSuccess(true);
-        navigate("/")
-      })
-
+    handleSignUp(Email, Password).then((result) => {
+      ManageProfile(Name, photo);
+      // console.log(result.user);
+      setSuccess(true);
+      navigate("/");
+      event.target.reset();
+    });
   };
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
-            <h1 className="text-3xl font-bold ml-10">SignUp now!</h1>
+              <h1 className="text-3xl font-bold ml-10">SignUp now!</h1>
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
@@ -123,7 +116,9 @@ const SignUp = () => {
             <p className="text-red-600 ml-4 mb-3">{errorMessage}</p>
           )}
           {success && (
-            <p className="text-green-600 mb-3 ml-20 text-lg">SignUp Successfully</p>
+            <p className="text-green-600 mb-3 ml-20 text-lg">
+              SignUp Successfully
+            </p>
           )}
         </div>
       </div>

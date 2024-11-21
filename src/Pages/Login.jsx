@@ -25,6 +25,7 @@ const Login = () => {
             // console.log(result.user);
             setSuccess(true)
             Navigate("/")
+            event.target.reset()
         })
         .catch(error=>{
             // console.log("ERROR",error);

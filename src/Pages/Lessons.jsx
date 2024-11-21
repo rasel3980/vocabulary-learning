@@ -25,7 +25,7 @@ const Lessons = () => {
         lessons.map(lesson=> <LessonCard key={lesson.id} lesson={lesson}></LessonCard>)
       }
       </div>
-      <div className="flex justify-between w-11/12 mx-auto my-10">
+      <div className="">
         <div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/kJQjXAVEWt0?si=uiItGwaKVljdo1DA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>

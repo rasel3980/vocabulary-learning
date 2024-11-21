@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { authContext } from "./AuthProvider/AuthProvider";
-import { FaUser } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 
 const Header = () => {
   const {user,handleLogout} = useContext(authContext);
-  console.log(user);
+  // console.log(user);
     const Link = <>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="start learning">Start-Learning</NavLink></li>
@@ -19,7 +19,7 @@ const Header = () => {
     </>
   return (
     <>
-    <div className="navbar mx-auto ">
+    <div className="navbar md:px-8 ">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,7 +47,7 @@ const Header = () => {
             }
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl font-extrabold">Lingo Bingo</a>
+        <NavLink to="/" className="btn btn-ghost text-gray-100 bg-green-500 text-3xl font-extrabold">Lingo Bingo</NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu font-bold menu-horizontal px-1">
@@ -59,17 +59,19 @@ const Header = () => {
       <div className="navbar-end">
         {
           user && user? (
-            <div className="mr-2"><img className="w-10 rounded-full" src={user?.photoURL} alt="userPhoto" /></div>
+            <div className="mr-2">
+              <NavLink to="/profile"><img className="w-10 rounded-full" src={user?.photoURL} alt="userPhoto" /></NavLink>
+            </div>
           )
           :
           (
             <div className="mr-3">
-              <FaUser size={25}></FaUser>
+              <FaUser  size={25}></FaUser>
             </div>
           )
         }
         {
-          user && user?.email? (<button onClick={handleLogout} className='btn font-bold bg-red-600 text-gray-100'>Logout</button>) :(<NavLink to="/login"><button className="btn text-gray-100 font-bold bg-green-400">Login</button></NavLink>)
+          user && user?.email? (<button onClick={handleLogout} className='btn font-bold bg-red-600 text-gray-100'>Logout <FaSignOutAlt></FaSignOutAlt> </button>) :(<NavLink to="/login"><button className="btn text-gray-100 font-bold bg-green-400">Login</button></NavLink>)
           
         }
         
