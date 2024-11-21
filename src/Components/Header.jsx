@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { authContext } from "./AuthProvider/AuthProvider";
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
+import {FaSignOutAlt, FaUser } from "react-icons/fa";
 
 const Header = () => {
   const {user,handleLogout} = useContext(authContext);

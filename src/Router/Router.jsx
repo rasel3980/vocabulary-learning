@@ -7,7 +7,6 @@ import Tutorials from '../Pages/Tutorials';
 import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import GoogleLogin from '../Pages/GoogleLogin';
-import LetsLearn from '../Pages/Lessons';
 import LessonDetails from '../Components/LessonDetails';
 import LessonCard from '../Components/LessonCard';
 import Lessons from '../Pages/Lessons';
@@ -15,6 +14,7 @@ import LessonList from '../Components/LessonList';
 import Profile from '../Pages/Profile';
 import PrivateRoute from '../Components/PrivateRoute';
 import ForgetPassword from '../Pages/ForgetPassword';
+import UpdateProfile from '../Pages/UpdateProfile';
 
 const Router = createBrowserRouter([
     {
@@ -71,6 +71,10 @@ const Router = createBrowserRouter([
             {
                 path:"/login",
                 element:<Login></Login>
+            },
+            {
+                path:"/update profile",
+                element:<UpdateProfile></UpdateProfile>
             },
             {
                 path:"/signUp",

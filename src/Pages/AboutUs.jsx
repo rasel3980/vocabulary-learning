@@ -1,9 +1,6 @@
-import React, { useContext } from 'react';
-import { authContext } from '../Components/AuthProvider/AuthProvider';
 import { FaUserGraduate } from 'react-icons/fa';
 
 const AboutUs = () => {
-    const {handleGoogleLogin} = useContext(authContext);
     return (
         <section className="bg-orange-950 py-16 px-6">
       <div className="max-w-6xl mx-auto text-center">

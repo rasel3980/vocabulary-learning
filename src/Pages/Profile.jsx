@@ -7,7 +7,7 @@ const Profile = () => {
   const navigate = useNavigate(); 
 
   const handleUpdateProfile = () => {
-    navigate('/update-profile');
+    navigate('/update profile');
   };
 
   return (
