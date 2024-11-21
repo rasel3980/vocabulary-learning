@@ -11,7 +11,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="w-[400px] h-auto my-10 bg-gray-100 rounded-xl shadow-xl mx-auto p-6">
+    <div className="w-[400px] h-auto my-10  bg-gray-100 rounded-xl shadow-xl mx-auto p-6">
       <div className="text-center space-y-4">
         <div className="flex justify-center">
           <img className="w-24 h-24 rounded-full border-4 border-gray-300" src={user.photoURL} alt="Profile" />

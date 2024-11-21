@@ -23,7 +23,7 @@ const Home = () => {
       <Slider></Slider>
       <div className=" bg-slate-600 rounded-xl text-gray-200 p-5">
         <h1 className="flex justify-center text-3xl font-bold"> <span className="text-blue-500" data-aos="fade-right">Welcome to </span> <span data-aos="fade-left" className="ml-2 text-green-500">Lingo Bingo</span></h1>
-        <p className="mt-5">
+        <p className="mt-5 text-center">
           Learning Spanish vocabulary with LINGO BINGO is both effective and
           enjoyable. Whether you’re a beginner or looking to brush up on your
           Spanish skills, our platform offers a comprehensive, user-friendly

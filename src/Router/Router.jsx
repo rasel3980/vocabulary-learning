@@ -14,6 +14,7 @@ import Lessons from '../Pages/Lessons';
 import LessonList from '../Components/LessonList';
 import Profile from '../Pages/Profile';
 import PrivateRoute from '../Components/PrivateRoute';
+import ForgetPassword from '../Pages/ForgetPassword';
 
 const Router = createBrowserRouter([
     {
@@ -78,6 +79,10 @@ const Router = createBrowserRouter([
             {
                 path:"/google login",
                 element:<GoogleLogin></GoogleLogin>
+            },
+            {
+                path:"/forget password",
+                element:<ForgetPassword></ForgetPassword>
             },
             {
                 path:"/profile",

@@ -52,7 +52,7 @@ const LessonDetails = () => {
     <>
     <div className="w-11/12 mx-auto">
         <header>
-            <h1 className="text-center mt-5 text-3xl text-red-600 italic underline font-bold">Lesson NO: {data[0].lesson_no}</h1>
+            <h1 className="text-center mt-5 text-3xl text-red-600  font-bold">Learning Vocabulary <span className="italic underline">Lesson NO: {data[0].lesson_no}</span></h1>
         </header>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-8">
       {data.map((details) => (

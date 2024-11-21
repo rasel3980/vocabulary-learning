@@ -70,7 +70,7 @@ const Login = () => {
                 showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>
              } </button>
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+            <NavLink to="/forget password" className="label-text-alt link link-hover">Forgot password?</NavLink>
           </label>
         </div>
         <div className="form-control mt-6">

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { authContext } from "./AuthProvider/AuthProvider";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
   const {user,handleLogout} = useContext(authContext);
@@ -57,8 +58,14 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {
-          user && (
+          user && user? (
             <div className="mr-2"><img className="w-10 rounded-full" src={user?.photoURL} alt="userPhoto" /></div>
+          )
+          :
+          (
+            <div className="mr-3">
+              <FaUser size={25}></FaUser>
+            </div>
           )
         }
         {
