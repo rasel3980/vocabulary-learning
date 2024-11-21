@@ -7,12 +7,17 @@ const LessonDetails = () => {
   const data = useLoaderData();
   console.log(data);
 
+  const speakWord = (word) => {
+    const utterance = new SpeechSynthesisUtterance(word);
+    speechSynthesis.speak(utterance);
+  };
+
+
   useEffect(() => {
-    // Initialize AOS after the component is mounted
     Aos.init({
-      duration: 1000,  // Set the animation duration (in ms)
-      easing: 'ease-in-out', // Set the easing function
-      once: true, // Whether the animation should happen only once (when scrolling)
+      duration: 1000,  
+      easing: 'ease-in-out', 
+      once: true, 
     });
   }, []); 
 
@@ -31,16 +36,30 @@ const LessonDetails = () => {
    if(!data){
     return <div>Loading....</div>
    }
+
+   const getDifficultyClass = (difficulty) => {
+    switch (difficulty) {
+      case "easy":
+        return "bg-green-100";
+      case "medium":
+        return "bg-yellow-100"; 
+      case "hard":
+        return "bg-red-100";
+    }
+  };
+
   return (
-    <div>
+    <>
+    <div className="w-11/12 mx-auto">
         <header>
-            <h1 className="text-center text-3xl text-red-600 italic underline font-bold">Lesson NO: {data[0].lesson_no}</h1>
+            <h1 className="text-center mt-5 text-3xl text-red-600 italic underline font-bold">Lesson NO: {data[0].lesson_no}</h1>
         </header>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-8">
       {data.map((details) => (
         <div
           key={details.id}
-          className="card bg-base-100 shadow-xl hover:shadow-2xl"
+          onClick={()=>speakWord(details.word)}
+          className={`card shadow-xl hover:shadow-2xl ${getDifficultyClass(details.difficulty)}`}
         >
           <div className="card-body">
             <h2 className="card-title justify-center font-extrabold text-3xl">
@@ -62,11 +81,10 @@ const LessonDetails = () => {
               >
                 When To Say
               </button>
-              <button onClick={()=>Navigate("/start learning")} className="px-2 py-1 hover:bg-[#3498db] font-bold bg-[#1abc9c] rounded-lg text-gray-50 ml-7">Back to Lesson</button>
-
             </div>
           </div>
         </div>
+        
       ))}
       {modalOpen && selectedWord && (
         <div
@@ -93,7 +111,11 @@ const LessonDetails = () => {
         </div>
       )}
     </div>
+    <div className="text-center mb-16">
+      <button onClick={()=>Navigate("/start learning")} className="px-4 py-1 hover:bg-[#3498db] font-bold bg-[#1abc9c] rounded-lg text-gray-50 text-2xl">Back to Lesson</button>
+      </div>
     </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { authContext } from "../Components/AuthProvider/AuthProvider";
 
 const SignUp = () => {
@@ -9,6 +9,9 @@ const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const Email = event.target.email.value;
@@ -41,6 +44,7 @@ const SignUp = () => {
         ManageProfile(Name,photo);
         console.log(result.user);
         setSuccess(true);
+        navigate("/")
       })
 
   };

@@ -1,27 +1,17 @@
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { auth } from '../Firebase/Firebase.init';
-import { FcGlobe, FcGoogle } from "react-icons/fc";
+import { NavLink, useNavigate} from 'react-router-dom';
+import {FcGoogle } from "react-icons/fc";
 import { authContext } from '../Components/AuthProvider/AuthProvider';
-import GoogleLogin from './GoogleLogin';
 
 const Login = () => {
   const {handleSignIN,handleGoogleLogin} = useContext(authContext);
     const [errorMessage,setErrorMessage]=useState('')
     const[success,setSuccess]= useState(false)
     const [showPassword,setShowPassword] = useState(false)
-    // const provider = new GoogleAuthProvider();
-    // const handleGoogleSignIN = ()=>{
-    //     signInWithPopup(auth, provider)
-    //     .then(result=>{
-    //         console.log(result);
-    //     })
-    //     .catch(error=>{
-    //         console.log('ERROR',error);
-    //     })
-    // }
+    const Navigate = useNavigate();
+    const navigate = useNavigate();
+
     const handleLoginForm = (event)=>{
         event.preventDefault();
         const Email = event.target.email.value;
@@ -29,22 +19,12 @@ const Login = () => {
         console.log(Email,Password);
         setErrorMessage('')
         setSuccess(false)
-        // if(errorMessage.length<6){
-        //     setErrorMessage('Password should be 6 character or longer');
-        //     return;
-        // }
-        // const passwordReEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{6,}$/;
-
-        // if(!passwordReEx.test(Password)){
-        //     setErrorMessage('At least one upperCase,one lowerCase,one digit,one special character')
-        //     return;
-
-        // }
 
         handleSignIN(Email,Password)
         .then(result=>{
             console.log(result.user);
             setSuccess(true)
+            Navigate("/")
         })
         .catch(error=>{
             console.log("ERROR",error);
@@ -52,6 +32,16 @@ const Login = () => {
             setSuccess(false)
         })
        
+    }
+
+    const handleLogin=()=>{
+      handleGoogleLogin()
+      .then(result=>{
+        navigate("/")
+      })
+      .catch(error=>{
+        console.log("ERROR",error);
+      })
     }
     return (
         <>
@@ -89,7 +79,7 @@ const Login = () => {
       </form>
       <p className='ml-5 mb-5 mr-3'>New to this website? Please <button className='btn btn-sm bg-blue-600 text-white'><NavLink to="/signUp">SignUp</NavLink></button></p>
       <div className='flex justify-center items-center'>
-      <button onClick={handleGoogleLogin} className='flex items-center justify-center'> <FcGoogle size={40} ></FcGoogle>Login with Google</button>
+      <button onClick={handleLogin} className='flex items-center justify-center'> <FcGoogle size={40} ></FcGoogle>Login with Google</button>
       
       </div>
       {

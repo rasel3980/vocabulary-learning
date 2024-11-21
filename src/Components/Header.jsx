@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { authContext } from "./AuthProvider/AuthProvider";
 
 const Header = () => {
+  const {user,handleLogout} = useContext(authContext);
     const Link = <>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="start learning">Start-Learning</NavLink></li>
     <li><NavLink to="tutorials">Tutorials</NavLink></li>
     <li><NavLink to="/about us">About-Us</NavLink></li>
-    <li><NavLink to="/profile">My-Profile</NavLink></li>
+    {
+      user && (
+        <li><NavLink to="/profile">My-Profile</NavLink></li>
+      )
+    }
     </>
   return (
     <div className="navbar mx-auto">
@@ -48,7 +54,16 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink to="/login"><button className="btn text-lg font-bold">Login</button></NavLink>
+        {
+          user && (
+            <div className="mr-2"><img className="w-10 rounded-full" src={user?.photoURL} alt="userPhoto" /></div>
+          )
+        }
+        {
+          user && user?.email? (<button onClick={handleLogout} className='btn font-bold bg-red-600 text-gray-100'>Logout</button>) :(<NavLink to="/login"><button className="btn text-gray-100 font-bold bg-green-400">Login</button></NavLink>)
+          
+        }
+        
       </div>
     </div>
   );

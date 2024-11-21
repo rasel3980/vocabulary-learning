@@ -9,7 +9,6 @@ const MainLayout = () => {
         <div>
             <div className='sticky top-0 z-50 backdrop-blur-lg bg-white/30 shadow-lg '>
             <Header></Header>
-            <Logout></Logout>
             </div>
             <div className='min-h-[calc(100vh-288px)]'>
             <Outlet></Outlet>
