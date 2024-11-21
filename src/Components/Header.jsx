@@ -4,6 +4,7 @@ import { authContext } from "./AuthProvider/AuthProvider";
 
 const Header = () => {
   const {user,handleLogout} = useContext(authContext);
+  console.log(user);
     const Link = <>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="start learning">Start-Learning</NavLink></li>
@@ -16,8 +17,9 @@ const Header = () => {
     }
     </>
   return (
-    <div className="navbar mx-auto">
-      <div className="navbar-start">
+    <>
+    <div className="navbar mx-auto ">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -66,6 +68,7 @@ const Header = () => {
         
       </div>
     </div>
+    </>
   );
 };
 

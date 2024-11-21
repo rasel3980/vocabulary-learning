@@ -2,11 +2,12 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../Components/Header';
 import Footer from '../Footer/Footer';
-import Logout from '../Components/Logout';
+import WelcomeMsg from '../Components/WelcomeMsg';
 
 const MainLayout = () => {
     return (
         <div>
+            <WelcomeMsg></WelcomeMsg>
             <div className='sticky top-0 z-50 backdrop-blur-lg bg-white/30 shadow-lg '>
             <Header></Header>
             </div>

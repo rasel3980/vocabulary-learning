@@ -16,18 +16,18 @@ const Login = () => {
         event.preventDefault();
         const Email = event.target.email.value;
         const Password = event.target.password.value;
-        console.log(Email,Password);
+        // console.log(Email,Password);
         setErrorMessage('')
         setSuccess(false)
 
         handleSignIN(Email,Password)
         .then(result=>{
-            console.log(result.user);
+            // console.log(result.user);
             setSuccess(true)
             Navigate("/")
         })
         .catch(error=>{
-            console.log("ERROR",error);
+            // console.log("ERROR",error);
             setErrorMessage(error.message)
             setSuccess(false)
         })
@@ -40,7 +40,7 @@ const Login = () => {
         navigate("/")
       })
       .catch(error=>{
-        console.log("ERROR",error);
+        // console.log("ERROR",error);
       })
     }
     return (

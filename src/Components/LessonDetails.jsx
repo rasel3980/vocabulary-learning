@@ -5,7 +5,7 @@ import 'aos/dist/aos.css'
 const LessonDetails = () => {
   const Navigate = useNavigate();
   const data = useLoaderData();
-  console.log(data);
+  // console.log(data);
 
   const speakWord = (word) => {
     const utterance = new SpeechSynthesisUtterance(word);

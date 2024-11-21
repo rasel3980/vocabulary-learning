@@ -23,14 +23,14 @@ export default function Slider() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper my-10 w-full md:w-11/12 h-80 md:h-[400px]"
+        className="mySwiper mt-10 w-full h-80 md:h-[400px]"
         loop={true}
       >
         <SwiperSlide>
           <div className="flex justify-center items-center w-full h-full">
             <img
               className="w-full h-full object-cover"
-              src={image}
+              src={image2}
               alt="Homework image"
             />
           </div>
@@ -39,7 +39,7 @@ export default function Slider() {
           <div className="flex justify-center items-center w-full h-full">
             <img
               className="w-full h-full object-cover"
-              src={image2}
+              src={image}
               alt="Online Spanish learning"
             />
           </div>

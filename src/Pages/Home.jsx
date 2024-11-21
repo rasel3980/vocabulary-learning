@@ -19,9 +19,9 @@ const Home = () => {
     });
   }, []);  
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <Slider></Slider>
-      <div className="w-11/12 mx-auto bg-slate-600 rounded-xl text-gray-200 p-5">
+      <div className=" bg-slate-600 rounded-xl text-gray-200 p-5">
         <h1 className="flex justify-center text-3xl font-bold"> <span className="text-blue-500" data-aos="fade-right">Welcome to </span> <span data-aos="fade-left" className="ml-2 text-green-500">Lingo Bingo</span></h1>
         <p className="mt-5">
           Learning Spanish vocabulary with LINGO BINGO is both effective and
@@ -40,7 +40,7 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="w-11/12 bg-gray-100 py-10 px-5 rounded-lg mx-auto">
+      <div className=" bg-gray-100 py-10 px-5 rounded-lg mx-auto">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">Success at a Glance</h2>
 
@@ -101,10 +101,9 @@ const Home = () => {
       </div>
     </div>
 
-    <section className="w-11/12 mx-auto learning-tips py-10 bg-gray-100">
+    <div className="py-10 bg-gray-100">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">Learning Tips</h2>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="p-6 bg-blue-100 rounded-lg shadow-md">
               <FaLightbulb className="text-4xl text-yellow-500 mb-4" />
@@ -129,7 +128,40 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="bg-blue-100 py-16 px-6 mb-10">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">Upcoming Features</h2>
+        <div className="space-y-6">
+          <div className="bg-slate-600 p-6 rounded-lg shadow-md">
+            <h3 className=" font-semibold text-gray-50 mb-3">Interactive Quizzes</h3>
+            <p className="text-gray-50">
+              Soon, you’ll be able to take interactive quizzes to test your vocabulary knowledge and improve your retention.
+            </p>
+          </div>
+          <div className="bg-slate-600 p-6 rounded-lg shadow-md">
+            <h3 className=" font-semibold text-gray-50 mb-3">Offline Mode</h3>
+            <p className="text-gray-50">
+              Our upcoming offline mode will allow you to continue learning without an internet connection.
+            </p>
+          </div>
+          <div className="bg-slate-600 p-6 rounded-lg shadow-md">
+            <h3 className=" font-semibold text-gray-50 mb-3">Personalized Learning Paths</h3>
+            <p className="text-gray-50">
+              We’re working on personalized learning paths to better match your learning style and goals.
+            </p>
+          </div>
+          <div className="bg-slate-600 p-6 rounded-lg shadow-md">
+            <h3 className=" font-semibold text-gray-50 mb-3">Progress Tracking</h3>
+            <p className="text-gray-50">
+              We will soon introduce progress tracking, where you can monitor your learning milestones and improvements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     </div>
   );
 };

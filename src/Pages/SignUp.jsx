@@ -18,7 +18,7 @@ const SignUp = () => {
     const Password = event.target.password.value;
     const Name = event.target.name.value;
     const photo = event.target.url.value;
-    console.log(Name,Email, Password,photo);
+    // console.log(Name,Email, Password,photo);
     setErrorMessage("");
     setSuccess(false);
     if (Password.length < 6) {
@@ -42,7 +42,7 @@ const SignUp = () => {
     handleSignUp(Email,Password)
       .then((result) => {
         ManageProfile(Name,photo);
-        console.log(result.user);
+        // console.log(result.user);
         setSuccess(true);
         navigate("/")
       })
