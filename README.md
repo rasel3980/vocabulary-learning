@@ -1,4 +1,4 @@
-# Lingo Bingo
+# Learn-Spanish
 
 ## Purpose:
 The Spanish Vocabulary Project is a web application designed to help users learn and practice Spanish vocabulary. The app offers various features such as learning new words, testing your vocabulary knowledge, and tracking your learning progress. It is built using React, Firebase, and Tailwind CSS for styling, offering a user-friendly and responsive experience.

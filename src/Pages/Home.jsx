@@ -22,13 +22,13 @@ const Home = () => {
     <div className="w-11/12 mx-auto">
       <Slider></Slider>
       <div className=" bg-slate-600 rounded-xl text-gray-200 p-5">
-        <h1 className="flex justify-center text-3xl font-bold"> <span className="text-blue-500" data-aos="fade-right">Welcome to </span> <span data-aos="fade-left" className="ml-2 text-green-500">Lingo Bingo</span></h1>
+        <h1 className="flex justify-center text-3xl font-bold"> <span className="text-blue-500" data-aos="fade-right">Welcome to </span> <span data-aos="fade-left" className="ml-2 text-green-500">Learn-Spanish</span></h1>
         <p className="mt-5 text-center">
-          Learning Spanish vocabulary with LINGO BINGO is both effective and
+          Learning Spanish vocabulary with Learn-Spanish is both effective and
           enjoyable. Whether you’re a beginner or looking to brush up on your
           Spanish skills, our platform offers a comprehensive, user-friendly
           approach to mastering the language. Here's how we make learning
-          Spanish vocabulary easy and fun. <strong className="text-white">Our Mission:-</strong> At LINGO BINGO, our
+          Spanish vocabulary easy and fun. <strong className="text-white">Our Mission:-</strong> At Learn-Spanish, our
           mission is to provide an engaging and accessible platform that helps
           you master the Spanish language, focusing on building a strong
           foundation of vocabulary. We believe that a rich vocabulary is the key

@@ -14,7 +14,7 @@ const UpdateProfile = () => {
 
     ManageProfile(name, photoURL)
       .then(() => {
-        navigate('/my-profile');
+        navigate('/update profile');
       })
       .catch((error) => {
         console.error('Error updating profile: ', error);

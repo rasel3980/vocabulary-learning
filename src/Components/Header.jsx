@@ -47,7 +47,7 @@ const Header = () => {
             }
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost text-gray-100 bg-green-500 text-3xl font-extrabold">Lingo Bingo</NavLink>
+        <NavLink to="/" className="text-3xl font-bold bg-blue-500 text-white px-3 py-1 border rounded-tr-3xl rounded-bl-2xl">Learn-Spanish</NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu font-bold menu-horizontal px-1">
@@ -71,7 +71,7 @@ const Header = () => {
           )
         }
         {
-          user && user?.email? (<button onClick={handleLogout} className='btn font-bold bg-red-600 text-gray-100'>Logout <FaSignOutAlt></FaSignOutAlt> </button>) :(<NavLink to="/login"><button className="btn text-gray-100 font-bold bg-green-400">Login</button></NavLink>)
+          user && user?.email? (<button onClick={handleLogout} className='btn font-bold'>Logout <FaSignOutAlt></FaSignOutAlt> </button>) :(<NavLink to="/login"><button className="btn text-white font-bold bg-blue-500">Login</button></NavLink>)
           
         }
         
